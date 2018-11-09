@@ -9,7 +9,25 @@
 
 .App-header {
   background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-body {
+  background-color: #282c34;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-footer {
+  background-color: #828791;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +38,10 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.Ingred{
+  color: white
 }
 
 @keyframes App-logo-spin {
