@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './rlogo.png';
+import logo from './static/images/rlogo.png';
 import './App.css';
 import Recipe from './Recipe';
+import GridRecipes from './GridRecipes';
 
 class App extends Component {
   constructor() {
@@ -22,7 +23,9 @@ class App extends Component {
                 <img src={logo} className="Receita-logo" alt="logo" />
         </header>
         <body className="App-body">
+          <GridRecipes className="recipe" recipe={this.state.recipe}/>
           <Recipe className="recipe" recipe={this.state.recipe}/>
+          <TitlebarGridList className="recipe" recipe={this.state.recipe}>Title</TitlebarGridList>
         </body>
         <footer className="App-footer">
                 <p>Footer</p>

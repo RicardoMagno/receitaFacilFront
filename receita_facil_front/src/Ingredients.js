@@ -73,15 +73,10 @@ class Ingredients extends React.Component{
                         <div classeName={classes.demo}>   
                             <List dense={dense} component="ul">
                                 {this.props.ingredients.map((ingr) => 
-                                    <li key={ingr.toString()}> 
-                                        {ingr} 
-                                    </li>
-                                )}
-                                {this.props.ingredients.map((ingr) => 
                                 <ListItem>
                                         <ListItemText key={ingr.toString()}
                                          primary={
-                                            <Typography variant="h6" color="primary">
+                                            <Typography variant="h6" color="primary" align="center">
                                                 {ingr}
                                             </Typography>}
                                             secondary={secondary ? 'Secondary text' : null} > 
