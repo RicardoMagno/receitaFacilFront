@@ -3,6 +3,9 @@ import logo from './static/images/rlogo.png';
 import './App.css';
 import Recipe from './Recipe';
 import GridRecipes from './GridRecipes';
+import TitlebarGridList from './TitlebarGridList';
+import tileData from './tileData';
+
 
 class App extends Component {
   constructor() {
@@ -25,7 +28,7 @@ class App extends Component {
         <body className="App-body">
           <GridRecipes className="recipe" recipe={this.state.recipe}/>
           <Recipe className="recipe" recipe={this.state.recipe}/>
-          <TitlebarGridList className="recipe" recipe={this.state.recipe}>Title</TitlebarGridList>
+          <TitlebarGridList/>
         </body>
         <footer className="App-footer">
                 <p>Footer</p>
