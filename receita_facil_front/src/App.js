@@ -8,6 +8,8 @@ import AutoGrid from './AutoGrid';
 import AdvancedGridList from './AdvancedGridList';
 import tileData from './tileData';
 import { BrowserRouter as Router, Route, HashRouter, Link } from "react-router-dom";
+import NavSearchbar from './NavSearchbar';
+import Login from './Login';
 
 class App extends Component {
   constructor() {
@@ -25,6 +27,7 @@ class App extends Component {
 
       <div className="App">
         <Greeting greeting="Bem vindo ao Receita Facil" />
+        <NavSearchbar barName="Navbar"/>
         <header className="App-header">
                 <img src={logo} className="Receita-logo" alt="logo" />
         </header>
@@ -35,8 +38,10 @@ class App extends Component {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/grid">Grid</Link></li>
                 <li><Link to="/recipe">Receita</Link></li>
+                <li><Link to="/login">Login</Link></li>
               </ul>
               <Route exact path="/" component={Home} />
+              <Route exact path="/login" component={Login} />
               <Route path="/grid" component={GridRecipes} />
                <Route
                 path='/recipe'
