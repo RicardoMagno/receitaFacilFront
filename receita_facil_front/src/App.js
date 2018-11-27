@@ -7,7 +7,7 @@ import TitlebarGridList from './TitlebarGridList';
 import AutoGrid from './AutoGrid';
 import AdvancedGridList from './AdvancedGridList';
 import tileData from './tileData';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, HashRouter, Link } from "react-router-dom";
 
 class App extends Component {
   constructor() {
@@ -31,13 +31,19 @@ class App extends Component {
         <body className="App-body">
           <Router>
             <div>
+              <ul>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/grid">Grid</Link></li>
+                <li><Link to="/recipe">Receita</Link></li>
+              </ul>
               <Route exact path="/" component={Home} />
-              <Route path="/grid" component={Grid} />
-              <Route path="/recipe" component={rRecipe} />
+              <Route path="/grid" component={GridRecipes} />
+               <Route
+                path='/recipe'
+                render={(props) => (<Recipe recipe={this.state.recipe}/>)}
+              />
             </div>
           </Router>
-          <GridRecipes className="recipe" recipe={this.state.recipe}/>
-          <Recipe className="recipe" recipe={this.state.recipe}/>
         </body>
         <footer className="App-footer">
                 <p>Footer</p>
@@ -49,7 +55,5 @@ class App extends Component {
 const Greeting = props => <h1>{props.greeting}</h1>;
 
 const Home = () => <h2>Home</h2>;
-const Grid = () => <GridRecipes/>;
-const rRecipe = () => <Recipe/>;
 
 export default App;

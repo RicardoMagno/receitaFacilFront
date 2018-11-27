@@ -11,7 +11,7 @@ class GridRecipes extends Component{
         const { dense, secondary } = this.state;
           return (
             <div className="root">
-                  <Grid grid={this.props.recipe.tittle} />
+                  <Grid/>
             </div>
           );
       }
