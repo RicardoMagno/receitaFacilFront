@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+
 //import ReactMarkdown from 'react-markdown';
 
 const Comment = props => (
@@ -7,9 +9,8 @@ const Comment = props => (
     <img alt="user_image" className="userImage" src={`https://picsum.photos/70?random=${props.id}`} />
     <div className="textContent">
       <div className="singleCommentContent">
-        <h3>{props.author}</h3>
-        ReactMarkdown source=
-        {props.children}
+      <Typography variant="h3" component="h3">{props.author}</Typography>
+      <Typography variant="h5" component="h3">{props.children}</Typography> 
       </div>
       <div className="singleCommentButtons">
       </div>

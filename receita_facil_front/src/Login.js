@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
-import FormGroup from '@material-ui/core/FormGroup';
-import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import "./Login.css";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
 
@@ -15,25 +15,12 @@ export default class Login extends Component {
     };
   }
 
-  validateForm() {
-    return this.state.email.length > 0 && this.state.password.length > 0;
-  }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.id]: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
-    event.preventDefault();
-  }
-
   render() {
+    const { classes } = this.props;
     return (
       <div className="Login">
-        <form onSubmit={this.handleSubmit}>
-          <FormGroup controlId="email" bsSize="large">
+      <div className="root">
+        <form>
           <TextField
             id="standard-full-width"
             label="Seu email "
@@ -41,45 +28,36 @@ export default class Login extends Component {
             placeholder="Email"
             fullWidth
             margin="normal"
+            variant="filled"
+            dense="true"
             InputLabelProps={{
                 shrink: true,
             }}
             />
-            <FormControl
-              autoFocus
-              type="email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-          </FormGroup>
-          <FormGroup controlId="password" bsSize="large">
           <TextField
             id="standard-full-width"
             label="Label"
-            style={{ margin: 8 }}
+            style={{ margin: 10 }}
             placeholder="Password"
             fullWidth
             margin="normal"
+            variant="filled"
             InputLabelProps={{
                 shrink: true,
             }}
             />
-            <FormControl
-              value={this.state.password}
-              onChange={this.handleChange}
-              type="password"
-            />
-          </FormGroup>
-          <Button
-            block
-            bsSize="large"
-            disabled={!this.validateForm()}
-            type="submit"
-          >
-            Login
-          </Button>
+            <Button variant="outlined" className="button">
+              Login
+            </Button>
         </form>
+      </div>
       </div>
     );
   }
 }
+
+Login.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default Login;

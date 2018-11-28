@@ -170,7 +170,7 @@ class NavSearchbar extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography className={classes.title} variant="h6" color="inherit" noWrap>
-              {this.props.barName}}
+              {this.props.barName}
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>

@@ -60,7 +60,7 @@ function TitlebarGridList(props) {
               subtitle={<span>by: {tile.author}</span>}
               actionIcon={
                 <IconButton className={classes.icon}>
-                  InfoIcon
+                  <InfoIcon/>
                 </IconButton>
               }
             />

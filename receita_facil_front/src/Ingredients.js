@@ -22,16 +22,16 @@ const styles = theme => ({
   },
   title: {
     margin: `${theme.spacing.unit * 4}px 0 ${theme.spacing.unit * 2}px`,
-    primary: '#757ce8',
+    primary: '#fffff0',
   },
 });
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: '#757ce8',
-      main: '#3f50b5',
-      dark: '#002884',
+      light: '#fffff0',
+      main: '#fffff1',
+      dark: '#ffeeee',
       contrastText: '#fff',
     },
     secondary: {
@@ -43,7 +43,7 @@ const theme = createMuiTheme({
   }
 });
 
-class Ingredients extends React.Component{
+class Ingredients extends Component{
     state = {
         dense: false,
         secondary: false,
@@ -51,10 +51,10 @@ class Ingredients extends React.Component{
 
       };
         render() {
-            const { classes } = this.props;
+            const { classes, theme } = this.props;
             const { dense, secondary } = this.state;
             return( 
-                <div classeName="{classes.root}">
+                <div classeName={classes.root}>
                         <Typography variant="h6" color="primary">
                         Ingredientes
                         </Typography>
@@ -73,7 +73,7 @@ class Ingredients extends React.Component{
                         <div classeName={classes.demo}>   
                             <List dense={dense} component="ul">
                                 {this.props.ingredients.map((ingr) => 
-                                <ListItem>
+                                <ListItem dense={this.props.dense}>
                                         <ListItemText key={ingr.toString()}
                                          primary={
                                             <Typography variant="h6" color="primary" align="center">
@@ -93,8 +93,9 @@ class Ingredients extends React.Component{
 
 Ingredients.propTypes = {
     classes: PropTypes.object.isRequired,
-  };
+    theme: PropTypes.object.isRequired,    
+};
   
-export default withStyles(styles)(Ingredients);
+export default withStyles(styles, { withTheme: true })(Ingredients);
 
 

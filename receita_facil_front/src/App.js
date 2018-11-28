@@ -3,11 +3,7 @@ import logo from './static/images/rlogo.png';
 import './App.css';
 import Recipe from './Recipe';
 import GridRecipes from './GridRecipes';
-import TitlebarGridList from './TitlebarGridList';
-import AutoGrid from './AutoGrid';
-import AdvancedGridList from './AdvancedGridList';
-import tileData from './tileData';
-import { BrowserRouter as Router, Route, HashRouter, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavSearchbar from './NavSearchbar';
 import Login from './Login';
 
@@ -35,10 +31,10 @@ class App extends Component {
           <Router>
             <div>
               <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/grid">Grid</Link></li>
-                <li><Link to="/recipe">Receita</Link></li>
-                <li><Link to="/login">Login</Link></li>
+                <li className="App-link" ><Link to="/">Home</Link></li>
+                <li className="App-link"><Link to="/grid">Grid</Link></li>
+                <li className="App-link"><Link to="/recipe">Receita</Link></li>
+                <li className="App-link"><Link to="/login">Login</Link></li>
               </ul>
               <Route exact path="/" component={Home} />
               <Route exact path="/login" component={Login} />
