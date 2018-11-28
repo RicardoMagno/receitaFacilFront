@@ -6,6 +6,7 @@ import GridRecipes from './GridRecipes';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavSearchbar from './NavSearchbar';
 import Login from './Login';
+import axios from 'axios';
 
 class App extends Component {
   constructor() {
@@ -14,15 +15,21 @@ class App extends Component {
           grid:[{tittle: "Bolo de Cenoura", description: "Bolo de  cenoura muito simples e saboroso",modo:["Cortar a cenoura","Bater no liquidificardor","Adicionar os outros ingredientes e bater novamente"], ingredientes: ["cenoura","oleo","acucar"], owner: "Usuario 15463268", date: "24-10-2018"},
                     {tittle: "Bolo de Cenoura", description: "Bolo de  cenoura muito simples e saboroso",modo:["Cortar a cenoura","Bater no liquidificardor","Adicionar os outros ingredientes e bater novamente"], ingredientes: ["cenoura","oleo","acucar"], owner: "Usuario 15463268", date: "24-10-2018"},
                     {tittle: "Bolo de Cenoura", description: "Bolo de  cenoura muito simples e saboroso",modo:["Cortar a cenoura","Bater no liquidificardor","Adicionar os outros ingredientes e bater novamente"], ingredientes: ["cenoura","oleo","acucar"], owner: "Usuario 15463268", date: "24-10-2018"}],
-          recipe: {tittle: "Bolo de Cenoura", description: "Bolo de  cenoura muito simples e saboroso",modo:["Cortar a cenoura","Bater no liquidificardor","Adicionar os outros ingredientes e bater novamente"], ingredientes: ["cenoura","oleo","acucar"], owner: "Usuario 15463268", date: "24-10-2018"}
+          recipe: {tittle: "Bolo de Cenoura", description: "Bolo de  cenoura muito simples e saboroso",modo:["Cortar a cenoura","Bater no liquidificardor","Adicionar os outros ingredientes e bater novamente"], ingredientes: ["cenoura","oleo","acucar"], owner: "Usuario 15463268", date: "24-10-2018"},
+          greeting: {tittle:"Bem vindo ao Receita Facil"}
       };
   }
-
+  componentDidMount() {
+    axios.get('http://localhost:3001/')
+    .then(res => {
+        this.setState({ greeting: res.data });
+    });
+  }
   render() {
     return (
 
       <div className="App">
-        <Greeting greeting="Bem vindo ao Receita Facil" />
+        <Greeting greeting={this.state.greeting.tittle} />
         <NavSearchbar barName="Navbar"/>
         <header className="App-header">
                 <img src={logo} className="Receita-logo" alt="logo" />
